@@ -1,0 +1,13 @@
+
+<div class="panel" ng-repeat="result in results">
+  <div class="panel-heading">
+    <h4><a ng-href="detail?uri={{result.uri}}">{{result.metadata["Recalling Firm"].values[0]}}</a> <span class="label label-info">{{result.metadata["Status"].values[0]}}</span></h4>
+  </div>
+  <div class="matches panel-body">
+    <div class="meta row">
+      <div class="pull-left" ng-repeat="(key, val) in result.metadata" ng-if="!key.match('\_').length" ><span class="label label-info">{{key}}</span> {{val.values[0]}}&nbsp;&nbsp;</div></div>
+    </div>
+    <p><strong>Reason for Recall:</strong> {{ result.metadata["reason_for_recall"].values[0] }}</p>
+    <p><strong>Product Description:</strong> {{ result.metadata["product_description"].values[0] }}</p>
+  </div>
+</div>
